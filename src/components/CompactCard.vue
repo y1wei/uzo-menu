@@ -104,7 +104,7 @@ const imageSrc = computed(() => getImage(props.item.img))
 
 .item-info {
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 8px;
   margin-top: 2px;
 }
