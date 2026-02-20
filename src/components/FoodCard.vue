@@ -20,7 +20,14 @@
 
   <!-- Regular card -->
   <div v-else class="card">
-    <div class="card-thumb">{{ item.icon }}</div>
+    <div class="card-thumb">
+      <template v-if="imageSrc">
+          <img :src="imageSrc" :alt="item.name" class="thumb-img">
+      </template>
+      <template v-else>
+          <span class="thumb-icon">{{ item.icon }}</span>
+      </template>
+    </div>
     <div class="card-body">
       <div class="card-name">{{ item.name }}</div>
       <div v-if="item.desc" class="card-desc">{{ item.desc }}</div>
@@ -34,11 +41,15 @@
 
 <script setup>
 import BadgePill from './BadgePill.vue'
-import FeaturedCard from './FeaturedCard.vue';
-defineProps({
+import FeaturedCard from './FeaturedCard.vue'
+import { computed } from 'vue'
+import { getImage } from '../utils/getImage'
+
+const props = defineProps({
   item: Object,
   featured: { type: Boolean, default: false }
 })
+const imageSrc = computed(() => getImage(props.item.img))
 </script>
 
 <style scoped>

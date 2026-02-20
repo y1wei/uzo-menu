@@ -1,8 +1,8 @@
 <template>
   <div class="card featured-card">
     <div class="card-thumb">
-        <template v-if="item.img">
-            <img :src="'./src/assets/img/'+item.img" alt="" class="thumb-img">
+        <template v-if="imageSrc">
+            <img :src="imageSrc" :alt="item.name" class="thumb-img">
         </template>
         <template v-else>
             <span class="thumb-icon">{{ item.icon }}</span>
@@ -59,7 +59,11 @@
 
 <script setup>
 import BadgePill from './BadgePill.vue'
-defineProps({ item: Object })
+import { computed } from 'vue'
+import { getImage } from '../utils/getImage'
+
+const props = defineProps({ item: Object })
+const imageSrc = computed(() => getImage(props.item.img))
 </script>
 
 <style scoped>

@@ -61,10 +61,10 @@
       </div>
 
       <!-- FOOD DIVIDER -->
-      <div class="section-divider"><span>🍽 Food Menu</span></div>
+      <!-- <div class="section-divider"><span>🍽 Food Menu</span></div> -->
 
       <!-- FOOD SECTIONS -->
-      <div
+      <!-- <div
         v-for="cat in foodCategories"
         :key="cat.id"
         class="section"
@@ -73,7 +73,7 @@
         <div class="sec-title">{{ cat.icon }} {{ cat.label }}</div>
         <FoodCard v-if="cat.featured" :item="cat.featured" :featured="true" />
         <FoodCard v-for="item in cat.items" :key="item.name" :item="item" />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

@@ -15,7 +15,7 @@ export const restaurant = {
   },
   happyHour: {
     start: ['15:00', '20:00'],
-    end: ['16:00', '21:00'],
+    end: ['16:00', '21:'],
     discount: '40%',
     //days: [0, 1, 3, 4, 5, 6] // 0 = Sunday, 6 = Saturday
   }
@@ -260,33 +260,33 @@ export const drinkCategories = [
 ]
 
 export const foodCategories = [
-  {
-    id: 'breakfast',
-    label: 'Breakfast',
-    icon: '🍳', 
-    featured: {
-      icon: '🍳', name: 'Avocado Smash Toast',
-      desc: 'Sourdough, smashed avo, poached egg, chilli flakes, microgreens',
-      price: '€14.50',
-      badge: 'popular',
-      featuredTag: "⭐ Chef's Pick"
-    },
-    items: [
-      { icon: '🥞', name: 'Fluffy Pancakes', desc: 'Stack of 3, maple syrup, seasonal berries, whipped cream', price: '€11.00', badge: 'default', badgeLabel: '🌾 Veggie' },
-      { icon: '🥚', name: 'Eggs Benedict', desc: 'Poached eggs, smoked salmon, hollandaise, English muffin', price: '€13.50', badge: 'popular' },
-    ]
-  },
-  {
-    id: 'lunch',
-    label: 'Lunch',
-    icon: '🥗',
-    featured: null,
-    items: [
-      { icon: '🥗', name: 'Seasonal Grain Bowl', desc: 'Quinoa, roasted veg, feta, tahini drizzle, mixed seeds', price: '€13.00', badge: 'vegan' },
-      { icon: '🥪', name: 'Club Sandwich', desc: 'Toasted triple decker, chicken, bacon, lettuce, tomato, fries', price: '€14.00', badge: 'popular' },
-      { icon: '🍜', name: 'Tomato Bisque Soup', desc: 'Roasted tomato, basil oil, crusty sourdough on the side', price: '€8.50', badge: 'new' },
-    ]
-  },
+  // {
+  //   id: 'breakfast',
+  //   label: 'Breakfast',
+  //   icon: '🍳', 
+  //   featured: {
+  //     icon: '🍳', name: 'Avocado Smash Toast',
+  //     desc: 'Sourdough, smashed avo, poached egg, chilli flakes, microgreens',
+  //     price: '€14.50',
+  //     badge: 'popular',
+  //     featuredTag: "⭐ Chef's Pick"
+  //   },
+  //   items: [
+  //     { icon: '🥞', name: 'Fluffy Pancakes', desc: 'Stack of 3, maple syrup, seasonal berries, whipped cream', price: '€11.00', badge: 'default', badgeLabel: '🌾 Veggie' },
+  //     { icon: '🥚', name: 'Eggs Benedict', desc: 'Poached eggs, smoked salmon, hollandaise, English muffin', price: '€13.50', badge: 'popular' },
+  //   ]
+  // },
+  // {
+  //   id: 'lunch',
+  //   label: 'Lunch',
+  //   icon: '🥗',
+  //   featured: null,
+  //   items: [
+  //     { icon: '🥗', name: 'Seasonal Grain Bowl', desc: 'Quinoa, roasted veg, feta, tahini drizzle, mixed seeds', price: '€13.00', badge: 'vegan' },
+  //     { icon: '🥪', name: 'Club Sandwich', desc: 'Toasted triple decker, chicken, bacon, lettuce, tomato, fries', price: '€14.00', badge: 'popular' },
+  //     { icon: '🍜', name: 'Tomato Bisque Soup', desc: 'Roasted tomato, basil oil, crusty sourdough on the side', price: '€8.50', badge: 'new' },
+  //   ]
+  // },
   // {
   //   label: 'Pastries',
   //   icon: '🥐',
