@@ -132,6 +132,7 @@ const imageSrc = computed(() => getImage(props.item.img))
 
 .item-options {
   display: flex;
+  flex-direction: column;
   flex: 1;
   align-items: flex-start;
   gap: 5px;
