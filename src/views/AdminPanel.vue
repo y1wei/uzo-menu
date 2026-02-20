@@ -98,6 +98,7 @@ import { ref, onMounted } from 'vue'
 import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { drinkCategories } from '../data/menu.js'
+import sha256 from 'js-sha256'
 
 const showPinModal = ref(true)
 const enteredPin = ref('')
@@ -127,11 +128,14 @@ async function checkPin() {
     const docSnap = await getDoc(docRef)
     
     if (docSnap.exists()) {
-      const correctPin = docSnap.data().pin
+      const storedHashedPin = docSnap.data().pin
+      const enteredHashedPin = sha256(enteredPin.value)
       
-      if (enteredPin.value === correctPin) {
+      if (enteredHashedPin === storedHashedPin) {
         // PIN correct - hide modal and load settings
         showPinModal.value = false
+        // Store authentication in session
+        sessionStorage.setItem('adminAuth', 'true')
         await loadSettings()
       } else {
         pinError.value = 'Incorrect PIN'
