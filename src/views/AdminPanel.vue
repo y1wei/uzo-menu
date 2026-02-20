@@ -1,5 +1,29 @@
 <template>
-  <div class="admin-panel">
+  <!-- PIN Modal -->
+  <div v-if="showPinModal" class="pin-modal-overlay" @click.self="goBack">
+    <div class="pin-modal">
+      <h2>🔐 Enter Admin PIN</h2>
+      <input 
+        v-model="enteredPin" 
+        type="password" 
+        inputmode="numeric"
+        pattern="[0-9]*"
+        placeholder="Enter PIN"
+        class="pin-input"
+        @keyup.enter="checkPin"
+        autofocus
+      />
+      <div v-if="pinError" class="pin-error">❌ {{ pinError }}</div>
+      <div class="pin-actions">
+        <button @click="checkPin" class="pin-submit" :disabled="checking">
+          {{ checking ? '🔄 Checking...' : '✓ Submit' }}
+        </button>
+        <button @click="goBack" class="pin-cancel">✗ Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div v-if="!showPinModal" class="admin-panel">
     <div class="admin-header">
       <h1>Menu Control Panel</h1>
       <button @click="goBack" class="back-btn">← Back to Menu</button>
@@ -75,6 +99,11 @@ import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { drinkCategories } from '../data/menu.js'
 
+const showPinModal = ref(true)
+const enteredPin = ref('')
+const pinError = ref('')
+const checking = ref(false)
+
 const settings = ref({
   hiddenCategories: [],
   hiddenItems: {}
@@ -83,8 +112,44 @@ const settings = ref({
 const saving = ref(false)
 const lastSaved = ref('')
 
+// Check PIN
+async function checkPin() {
+  if (!enteredPin.value) {
+    pinError.value = 'Please enter PIN'
+    return
+  }
+
+  checking.value = true
+  pinError.value = ''
+
+  try {
+    const docRef = doc(db, 'settings', 'admin')
+    const docSnap = await getDoc(docRef)
+    
+    if (docSnap.exists()) {
+      const correctPin = docSnap.data().pin
+      
+      if (enteredPin.value === correctPin) {
+        // PIN correct - hide modal and load settings
+        showPinModal.value = false
+        await loadSettings()
+      } else {
+        pinError.value = 'Incorrect PIN'
+        enteredPin.value = ''
+      }
+    } else {
+      pinError.value = 'Admin settings not found'
+    }
+  } catch (error) {
+    console.error('Error checking PIN:', error)
+    pinError.value = 'Error checking PIN'
+  } finally {
+    checking.value = false
+  }
+}
+
 // Load settings from Firebase
-onMounted(async () => {
+async function loadSettings() {
   try {
     const docRef = doc(db, 'settings', 'menu')
     const docSnap = await getDoc(docRef)
@@ -103,7 +168,8 @@ onMounted(async () => {
     console.error('Error loading settings:', error)
     alert('Error loading settings from server')
   }
-})
+}
+
 
 function toggleCategory(catId) {
   const index = settings.value.hiddenCategories.indexOf(catId)
@@ -184,6 +250,97 @@ function goBack() {
 </script>
 
 <style scoped>
+/* PIN Modal */
+.pin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.pin-modal {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.pin-modal h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+.pin-input {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  letter-spacing: 8px;
+  font-weight: 700;
+}
+
+.pin-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.pin-error {
+  background: #fee;
+  color: #c00;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.pin-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.pin-submit, .pin-cancel {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.pin-submit {
+  background: var(--accent);
+  color: white;
+}
+
+.pin-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pin-cancel {
+  background: #ddd;
+  color: #666;
+}
+
+.pin-submit:hover:not(:disabled),
+.pin-cancel:hover {
+  opacity: 0.9;
+}
+
 .admin-panel {
   max-width: 900px;
   margin: 0 auto;

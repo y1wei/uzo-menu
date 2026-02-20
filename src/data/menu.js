@@ -14,8 +14,8 @@ export const restaurant = {
     6: { open: '12:00', close: '24:00', label: 'Sat' }, 
   },
   happyHour: {
-    start: ['00:00', '20:00'],
-    end: ['01:00', '21:59'],
+    start: ['15:00', '20:00'],
+    end: ['16:00', '21:00'],
     discount: '40%',
     //days: [0, 1, 3, 4, 5, 6] // 0 = Sunday, 6 = Saturday
   }
