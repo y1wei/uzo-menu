@@ -74,6 +74,10 @@
         <FoodCard v-if="cat.featured" :item="cat.featured" :featured="true" />
         <FoodCard v-for="item in cat.items" :key="item.name" :item="item" />
       </div> -->
+      <div class="footer">
+        <h3>Can't find what you're looking for?</h3>
+        <p>Our friendly staff is here to help! Feel free to ask about special requests, recommendations, or items not listed on the menu.</p>
+    </div>
     </div>
   </div>
 </template>
@@ -361,6 +365,27 @@ onUnmounted(() => {
 .section-divider { display: flex; align-items: center; gap: 12px; margin: 30px 0 0; }
 .section-divider span { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); white-space: nowrap; }
 .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.footer { text-align: center; padding: 24px 16px 36px; color: var(--muted); font-size: 0.78rem; border-top: 1px solid var(--border); }
-.footer strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 0.9rem; }
+.footer {
+  margin: 30px auto;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border: 2px dashed var(--border);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.footer h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.footer p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
 </style>

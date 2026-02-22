@@ -7,7 +7,7 @@ export const restaurant = {
   hours: {
     0: { open: '14:00', close: '22:00', label: 'Sun' }, 
     1: { open: '12:00', close: '22:00', label: 'Mon' }, 
-    2: null, 
+    2: null, //CLosed
     3: { open: '12:00', close: '22:00', label: 'Wed' }, 
     4: { open: '12:00', close: '23:00', label: 'Thu' }, 
     5: { open: '12:00', close: '24:00', label: 'Fri' }, 
@@ -15,9 +15,8 @@ export const restaurant = {
   },
   happyHour: {
     start: ['15:00', '20:00'],
-    end: ['16:00', '21:'],
+    end: ['16:00', '21:00'],
     discount: '40%',
-    //days: [0, 1, 3, 4, 5, 6] // 0 = Sunday, 6 = Saturday
   }
 }
 
@@ -97,39 +96,11 @@ export const drinkCategories = [
           { name: 'Whipped Cream', price: '+€0.50' }
         ],  
       },
-      // { icon: '🧋', name: 'Iced Matcha', desc: 'Ceremonial matcha, oat milk', price: '€5.50', badge: 'new' },
       { 
         icon: '☕', name: 'Irish Coffee',
         desc: 'jameson, whipped cream', 
         price: '€9.70' 
       },
-    ]
-  },
-  {
-    id: 'soft',
-    label: 'Soft Drinks',
-    icon: '🥤',
-    layout: 'compact',
-    items: [
-      { img: 'cola.png', name: 'Coca Cola', price: '€3.60' },
-      { img: 'cola-zero.png', name: 'Coca Cola Zero', price: '€3.60' },
-      { img: 'fanta.png', name: 'Fanta Orange', price: '€3.60' },
-      { img: 'sprite.png', name: 'Sprite', price: '€3.60' },
-      { img: 'lipton.png', name: 'Lipton Ice Tea', price: '€3.60',
-        flavors: ['Peach', 'Sparkling', 'Green']
-      },
-      { img: 'royal-club.png', name: 'Tonic Water ', price: '€3.60' },
-      { img: 'royal-club.png', name: 'Ginger Ale', price: '€3.60' },
-      { img: 'royal-club.png', name: 'Ginger Beer', price: '€3.60' },
-      { img: 'royal-club.png', name: 'Pink Grapefruit Zero', price: '€3.60' },
-      { img: 'chocomel.png', name: 'Chocomel', price: '€3.60' },
-      { img: 'redbull.png', name: 'Redbull', price: '€4.50' },
-      { img: 'juice.png', name: 'Juice', price: '€3.60',
-        flavors: ['Apple', 'Orange']
-      },
-      { img: 'spa.png', name: 'Water 50cl', price: '€3.30',
-        flavors: ['Still', 'Sparkling']
-      }
     ]
   },
   {
@@ -150,7 +121,7 @@ export const drinkCategories = [
             { label: '50cl', price: '€8.00' }
         ]
       },
-      { img: 'leffe.png', name: 'Leffe Blond | 6.7%', desc: 'Blonde, malty-sweet flavour balanced with fruity, slightly bitter finish.', 
+      { img: 'leffe.png', badge: 'popular', name: 'Leffe Blond | 6.7%', desc: 'Blonde, malty-sweet flavour balanced with fruity, slightly bitter finish.', 
         sizes:[  
             { label: '25cl', price: '€6.00' },
             { label: '50cl', price: '€11.00' }
@@ -187,7 +158,6 @@ export const drinkCategories = [
             { label: '50cl', price: '€11.00' }
         ]
       }
-      // { img: 'ipa.png', name: 'Corona', desc: 'Mexican lager, served with lime — 330ml', price: '€5.00' },
     ]
   }, 
   {
@@ -205,16 +175,52 @@ export const drinkCategories = [
     ]
   },
   {
-    id: 'bottled-zero',
-    label: '0.0% Beers',
-    icon: '🍺',
+    id: 'wine',
+    label: 'Wines',
+    icon: '🍷',
     items: [
-      { img: 'heineken.png', happyHour: true, name: 'Heineken 0.0%', desc: '300ml', price: '€4.00' },
-      { img: 'rose.png', badge: '', name: 'Amstel Rosé 0.0%', desc: '300ml', price: '€4.50' },
-      { img: 'texel.png', badge: '', name: 'Texel Skuumkoppe 0.0%', desc: '300ml', price: '€5.00' },
-      { img: 'leffe.png', badge: 'popular', name: 'Leffe Blond 0.0%', desc: '330ml', price: '€4.50' },
-      { img: 'corona.png', badge: '', name: 'Corona 0.0%', desc: '330ml', price: '€4.50' },
+      { img: 'chardonnay.png', badge: 'popular', name: 'Chardonnay', desc: 'Santa Alicia - Chili',
+        sizes:[  
+            { label: 'Glass', price: '€5.90' },
+            { label: 'Bottle', price: '€23.40' }
+        ]
 
+      },
+      { img: 'cabernet.png', badge: '', name: 'Cabernet Sauvignon', desc: 'Santa Alicia - Chili',
+        sizes:[  
+            { label: 'Glass', price: '€5.90' },
+            { label: 'Bottle', price: '€23.40' }
+        ]
+
+      },
+      { img: 'monteclain.png', badge: '', name: 'Grenache Rosé', desc: 'MonteClain - France',
+        sizes:[  
+            { label: 'Glass', price: '€6.20' },
+            { label: 'Bottle', price: '€24.80' }
+        ]
+
+      },
+      { img: 'prosecco.png', badge: '', name: 'Prosecco Spumante', desc: 'Pronol - Italy',
+        sizes:[  
+            { label: 'Glass', price: '€8.70' },
+            { label: 'Bottle', price: '€33.80' }
+        ]
+
+      },
+    ]
+  },
+  {
+    id: 'cocktails',
+    label: 'Cocktails',
+    icon: '🍸',
+    items: [
+      { icon: '🥂', name: 'Aperol Spritz', desc: 'Aperol, prosecco, soda, orange slice', price: '€11.00', badge: 'popular' },
+      { icon: '🥂', name: 'Limoncello Spritz', desc: 'Limoncello, prosecco, soda, lemon', price: '€11.00', badge: '' },
+      { icon: '🥂', name: 'Elderflower Spritz', desc: 'Elderflower, prosecco, soda, lime, mint', price: '€11.00', badge: '' },
+      { icon: '🍸', name: 'Espresso Martini', desc: 'Espresso, vodka, coffee liquor, caramel', price: '€11.00', badge: 'popular' },
+      { icon: '🍹', name: 'House Mojito', desc: 'Fresh mint, lime, rum, soda, sugar', price: '€10.50', badge: 'popular' },
+      { icon: '🍹', name: 'Pink Lady', desc: 'Pink gin, pink grapefruit soda, summer berries', price: '€10.50', badge: 'new' },
+      { icon: '🥃', name: 'Whiskey Sour', desc: 'Whiskey, lemon, egg white, sugar', price: '€12.00' },
     ]
   },
   {
@@ -232,17 +238,43 @@ export const drinkCategories = [
     ]
   },
   {
-    id: 'cocktails',
-    label: 'Cocktails',
-    icon: '🍸',
+    id: 'bottled-zero',
+    label: '0.0% Beers',
+    icon: '🍺',
     items: [
-      { icon: '🥂', name: 'Aperol Spritz', desc: 'Aperol, prosecco, soda, orange slice', price: '€11.00', badge: 'popular' },
-      { icon: '🥂', name: 'Limoncello Spritz', desc: 'Limoncello, prosecco, soda, lemon', price: '€11.00', badge: '' },
-      { icon: '🥂', name: 'Elderflower Spritz', desc: 'Elderflower, prosecco, soda, lime, mint', price: '€11.00', badge: '' },
-      { icon: '🍸', name: 'Espresso Martini', desc: 'Espresso, vodka, coffee liquor, caramel', price: '€11.00', badge: 'popular' },
-      { icon: '🍹', name: 'House Mojito', desc: 'Fresh mint, lime, rum, soda, sugar', price: '€10.50', badge: 'popular' },
-      { icon: '🍹', name: 'Pink Lady', desc: 'Pink gin, pink grapefruit soda, summer berries', price: '€10.50', badge: 'new' },
-      { icon: '🥃', name: 'Whiskey Sour', desc: 'Whiskey, lemon, egg white, sugar', price: '€12.00' },
+      { img: 'heineken.png', happyHour: true, name: 'Heineken 0.0%', desc: '300ml', price: '€4.00' },
+      { img: 'rose.png', badge: '', name: 'Amstel Rosé 0.0%', desc: '300ml', price: '€4.50' },
+      { img: 'texel.png', badge: '', name: 'Texel Skuumkoppe 0.0%', desc: '300ml', price: '€5.00' },
+      { img: 'leffe.png', badge: 'popular', name: 'Leffe Blond 0.0%', desc: '330ml', price: '€4.50' },
+      { img: 'corona.png', badge: '', name: 'Corona 0.0%', desc: '330ml', price: '€4.50' },
+
+    ]
+  },
+  {
+    id: 'soft',
+    label: 'Soft Drinks',
+    icon: '🥤',
+    layout: 'compact',
+    items: [
+      { img: 'cola.png', name: 'Coca Cola', price: '€3.60' },
+      { img: 'cola-zero.png', name: 'Coca Cola Zero', price: '€3.60' },
+      { img: 'fanta.png', name: 'Fanta Orange', price: '€3.60' },
+      { img: 'sprite.png', name: 'Sprite', price: '€3.60' },
+      { img: 'lipton.png', name: 'Lipton Ice Tea', price: '€3.60',
+        flavors: ['Peach', 'Sparkling', 'Green']
+      },
+      { img: 'royal-club.png', name: 'Tonic Water ', price: '€3.60' },
+      { img: 'royal-club.png', name: 'Ginger Ale', price: '€3.60' },
+      { img: 'royal-club.png', name: 'Ginger Beer', price: '€3.60' },
+      { img: 'royal-club.png', name: 'Pink Grapefruit Zero', price: '€3.60' },
+      { img: 'chocomel.png', name: 'Chocomel', price: '€3.60' },
+      { img: 'redbull.png', name: 'Redbull', price: '€4.50' },
+      { img: 'juice.png', name: 'Juice', price: '€3.60',
+        flavors: ['Apple', 'Orange']
+      },
+      { img: 'spa.png', name: 'Water 50cl', price: '€3.30',
+        flavors: ['Still', 'Sparkling']
+      }
     ]
   },
   {
