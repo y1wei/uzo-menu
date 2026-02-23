@@ -174,6 +174,20 @@ export const drinkCategories = [
       { img: 'affligem.png', name: 'Affligem Triple | 9%', desc: 'A stronger, aromatic golden ale with spicy yeast character, honey‑like malt, and a dry, warming finish. — 300ml', price: '€7.00' },
     ]
   },
+   {
+    id: 'cider',
+    label: 'Fruity & Cider',
+    icon: '🍺',
+    items: [
+      { img: 'amstel.png', badge: '', name: 'Amstel Radler | 2%', desc: 'Lemon flavour — 300ml', price: '€4.80' },
+      { img: 'rose.png', badge: '', name: 'Amstel Rosé | 4%', desc: '300ml', price: '€5.00' },
+      { img: 'kriek.png', badge: 'popular', name: `Lindeman's Kriek | 3.5%`, desc: '250ml', price: '€5.00' },
+      { img: 'mort.png', badge: 'new', name: `Mort Subite Kriek Lambic | 4%`, desc: '250ml', price: '€5.00' },
+      { img: 'sb.png', badge: 'popular', name: 'Somersby Cider Apple | 4.5%', desc: '300ml', price: '€6.00' },
+      { img: 'sb.png', badge: '', name: 'Somersby Cider Blackberry | 4.5%', desc: '300ml', price: '€6.00' },
+      { img: 'magners.png', badge: '', name: 'Magners Cider Pint | 4.5%', desc: '570ml', price: '€10.00' },
+    ]
+  },
   {
     id: 'wine',
     label: 'Wines',
@@ -214,27 +228,29 @@ export const drinkCategories = [
     label: 'Cocktails',
     icon: '🍸',
     items: [
-      { icon: '🥂', name: 'Aperol Spritz', desc: 'Aperol, prosecco, soda, orange slice', price: '€11.00', badge: 'popular' },
-      { icon: '🥂', name: 'Limoncello Spritz', desc: 'Limoncello, prosecco, soda, lemon', price: '€11.00', badge: '' },
-      { icon: '🥂', name: 'Elderflower Spritz', desc: 'Elderflower, prosecco, soda, lime, mint', price: '€11.00', badge: '' },
-      { icon: '🍸', name: 'Espresso Martini', desc: 'Espresso, vodka, coffee liquor, caramel', price: '€11.00', badge: 'popular' },
-      { icon: '🍹', name: 'House Mojito', desc: 'Fresh mint, lime, rum, soda, sugar', price: '€10.50', badge: 'popular' },
-      { icon: '🍹', name: 'Pink Lady', desc: 'Pink gin, pink grapefruit soda, summer berries', price: '€10.50', badge: 'new' },
-      { icon: '🥃', name: 'Whiskey Sour', desc: 'Whiskey, lemon, egg white, sugar', price: '€12.00' },
+      { icon: '🥂', name: 'Aperol Spritz', desc: 'aperol, prosecco, soda, orange slice', price: '€11.00', badge: 'popular' },
+      { icon: '🥂', name: 'Limoncello Spritz', desc: 'limoncello, prosecco, soda, lemon', price: '€11.00', badge: '' },
+      { icon: '🥂', name: 'Elderflower Spritz', desc: 'elderflower, prosecco, soda, lime, mint', price: '€11.00', badge: '' },
+      { icon: '🍸', name: 'Espresso Martini', desc: 'espresso, vodka, coffee liquor, caramel', price: '€14.00', badge: 'popular' },
+      { icon: '🍸', name: 'Margarita', desc: 'tequila, triple sec, lime, sugar', price: '€14.00', badge: '' },
+      { icon: '🍹', name: 'House Mojito', desc: 'fresh mint, lime, white rum, soda, sugar', price: '€13.00', badge: 'popular' },
+      { icon: '🍹', name: 'Pink Lady', desc: 'pink gin, pink grapefruit soda, summer berries', price: '€10.50', badge: 'new' },
+      { icon: '🥃', name: 'Negroni', desc: 'gin, campari, sweet vermouth', price: '€13.00' },
+      { icon: '🥃', name: 'Whiskey Sour', desc: 'whiskey, lemon, egg white, sugar', price: '€14.00' },
+      { icon: '🥃', name: 'Amaretto Sour', desc: 'amaretto, lemon, egg white, sugar', price: '€14.00' },
+      { icon: '🍹', name: 'Virgin Mojito 0%', desc: 'lime, fresh mint, sugar, soda', price: '€8.50' },
+      { icon: '🍹', name: 'Shirley Temple 0%', desc: 'grenadine, lime, ginger ale, maraschino cherry', price: '€8.50' },
     ]
   },
   {
-    id: 'cider',
-    label: 'Fruity & Cider',
-    icon: '🍺',
+    id: 'gintonic',
+    label: 'Gin & Tonic',
+    icon: '🍸',
     items: [
-      { img: 'amstel.png', badge: '', name: 'Amstel Radler | 2%', desc: 'Lemon flavour — 300ml', price: '€4.80' },
-      { img: 'rose.png', badge: '', name: 'Amstel Rosé | 4%', desc: '300ml', price: '€5.00' },
-      { img: 'kriek.png', badge: 'popular', name: `Lindeman's Kriek | 3.5%`, desc: '250ml', price: '€5.00' },
-      { img: 'kwak.png', badge: '', name: `Kwak Rouge | 8%`, desc: 'Cherry flavour — 330ml', price: '€6.50' },
-      { img: 'sb.png', badge: 'popular', name: 'Somersby Cider Apple | 4.5%', desc: '300ml', price: '€6.00' },
-      { img: 'sb.png', badge: '', name: 'Somersby Cider Blackberry | 4.5%', desc: '300ml', price: '€6.00' },
-      { img: 'magners.png', badge: '', name: 'Magners Cider Pint | 4.5%', desc: '570ml', price: '€10.00' },
+      { icon: '🍸', name: 'Tangueray', desc: 'Royal Club Tonic', price: '€8.60', badge: '' },
+      { icon: '🍸', name: 'Bombay Sapphire', desc: 'Royal Club Tonic', price: '€9.60', badge: 'popular' },
+      { icon: '🍸', name: `Gordon's Pink`, desc: 'light, refreshing gin with natural berry flavours and a crisp, subtly sweet finish.', price: '€8.60', badge: '' },
+      { icon: '🍸', name: `Six Dogs — Blue`, desc: ' A smooth South African gin with a natural blue hue that turns pink with tonic, offering light floral notes.', price: '€9.60', badge: '' },
     ]
   },
   {
